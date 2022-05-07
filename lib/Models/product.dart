@@ -36,5 +36,15 @@ class Products extends ChangeNotifier{
   void AddProduct(){
     final now = DateTime.now();
     productlist[now]='New_product';
+    print('Adding: '+productlist.keys.elementAt(productlist.length-1).toString());
+    print(productlist.length);
+    notifyListeners();
+  }
+
+  void RemoveProduct(int index){
+    print('Remove: '+productlist.keys.elementAt(index).toString());
+    productlist.remove(productlist.keys.elementAt(index));
+    print(productlist.length);
+    notifyListeners();
   }
 }
